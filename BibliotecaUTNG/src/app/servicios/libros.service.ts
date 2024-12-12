@@ -12,12 +12,12 @@ import { map } from 'rxjs/operators';
 })
 export class LibrosService {
 
-  private API_URL = "http://localhost:8080/api"
+  private API_URL = "http://192.168.49.2:30444/api"
 
   constructor(private http: HttpClient) { }
 
   getLibros() {
-    return this.http.get('http://localhost:8080/api/libros')
+    return this.http.get('http://192.168.49.2:30444/api/libros')
       .pipe(
         catchError(error => {
           console.error('Error al obtener datos de libros:', error);
@@ -28,15 +28,15 @@ export class LibrosService {
 
   //Buscar libros
   searchBooks(term: number) {
-    return this.http.get(`http://localhost:8080/api/books/search/${term}`);
+    return this.http.get(`http://192.168.49.2:30444/api/books/search/${term}`);
   }
 
   altaLibro(libro): Observable<any> {
-     return this.http.post('http://localhost:8080/api/libros', libro);
+     return this.http.post('http://192.168.49.2:30444/api/libros', libro);
   }
 
   borrarLibro(ISBN: number) {
-    return this.http.delete(`http://localhost:8080/api/libros/${ISBN}`);
+    return this.http.delete(`http://192.168.49.2:30444/api/libros/${ISBN}`);
   }
 
   verificarIsbnExistente(isbn: string): Observable<boolean> {
@@ -47,11 +47,11 @@ export class LibrosService {
   }
 
   getLibro(ISBN: number) {
-    return this.http.get(`http://localhost:8080/api/libros/${ISBN}`)
+    return this.http.get(`http://192.168.49.2:30444/api/libros/${ISBN}`)
   }
 
   actualizarLibro(ISBN: number, libro: Libro) {
-    return this.http.put(`http://localhost:8080/api/libros/${ISBN}`, libro);
+    return this.http.put(`http://192.168.49.2:30444/api/libros/${ISBN}`, libro);
   }
 
   buscarLibros(terminoBusqueda: string): Observable<any[]> {

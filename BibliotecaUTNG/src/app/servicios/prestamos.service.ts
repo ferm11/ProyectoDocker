@@ -10,16 +10,16 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class PrestamosService {
 
-  private API_URL = "http://localhost:8080/api"
+  private API_URL = "http://192.168.49.2:30444/api"
 
   constructor(private http: HttpClient) { }
 
   altaPrestamo(prestamo) {
-    return this.http.post(`http://localhost:8080/api/prestamos/`, prestamo);
+    return this.http.post(`http://192.168.49.2:30444/api/prestamos/`, prestamo);
   }
 
   getPrestamos() {
-    return this.http.get('http://localhost:8080/api/prestamos')
+    return this.http.get('http://192.168.49.2:30444/api/prestamos')
   }
 
   eliminarPrestamo(idPrestamo: number): Observable<any> {
@@ -38,6 +38,6 @@ export class PrestamosService {
     const numControl = localStorage.getItem('numControl');
     console.log('Número de control:', numControl); // Agregar esta línea para verificar el número de control
 
-    return this.http.get<any[]>('http://localhost:8080/api/misPrestamos', { params: { numControl } });
+    return this.http.get<any[]>('http://192.168.49.2:30444/api/misPrestamos', { params: { numControl } });
 }
 }

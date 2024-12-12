@@ -8,20 +8,20 @@ import { Observable } from 'rxjs';
 })
 export class EjemplaresService {
 
-  private API_URL = "http://localhost:8080/api"
+  private API_URL = "http://192.168.49.2:30444/api"
 
   constructor(private http:HttpClient) { }
 
   getEjemplares(id: number) {
-    return this.http.get(`http://localhost:8080/api/ejemplares/${id}`);
+    return this.http.get(`http://192.168.49.2:30444/api/ejemplares/${id}`);
   }
 
   deleteEjemplar(id: number, isbn: number) {
-    return this.http.delete(`http://localhost:8080/api/ejemplares/${id}/${isbn}`);
+    return this.http.delete(`http://192.168.49.2:30444/api/ejemplares/${id}/${isbn}`);
   }
 
   addEjemplar(ejemplar:Ejemplar) {
-    return this.http.post(`http://localhost:8080/api/ejemplares/`, ejemplar);
+    return this.http.post(`http://192.168.49.2:30444/api/ejemplares/`, ejemplar);
   }
 
   buscarLibros(terminoBusqueda: string): Observable<any[]> {
@@ -30,7 +30,7 @@ export class EjemplaresService {
 
   //Todos los ejemplares
   ejemplares(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8080/api/ej');
+    return this.http.get<any[]>('http://192.168.49.2:30444/api/ej');
   }
   
 

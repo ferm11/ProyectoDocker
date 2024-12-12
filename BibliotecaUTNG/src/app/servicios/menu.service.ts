@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class MenuService {
 
-  private API_URL = "http://localhost:8080/api"
+  private API_URL = "http://192.168.49.2:30444/api"
 
   showNavbar : BehaviorSubject<boolean>;
 
@@ -25,7 +25,7 @@ export class MenuService {
   }
 
   actualizarUsuario(nuevosDatos: any): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/api/actualizar-usuario', nuevosDatos);
+    return this.http.post<any>('http://192.168.49.2:30444/api/actualizar-usuario', nuevosDatos);
   }
 
 }

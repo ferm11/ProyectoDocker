@@ -8,13 +8,13 @@ import { catchError } from 'rxjs/operators';
 })
 export class RestablecerService {
 
-  private API_URL = "http://localhost:8080/api"
+  private API_URL = "http://192.168.49.2:30444/api"
 
   constructor(private http: HttpClient) {}
 
   sendVerificationCode(email: string): Observable<any> {
     console.log('Enviando código de verificación para:', email);
-    return this.http.post<any>('http://localhost:8080/api/forgot-password', { email })
+    return this.http.post<any>('http://192.168.49.2:30444/api/forgot-password', { email })
       .pipe(
         catchError(error => {
           console.error('Error al enviar el correo:', error);
@@ -37,7 +37,7 @@ export class RestablecerService {
   }
   
   resetPassword(email: string, newPassword: string) {
-    return this.http.post('http://localhost:8080/api/reset-password', { email, newPassword });
+    return this.http.post('http://192.168.49.2:30444/api/reset-password', { email, newPassword });
   }
 
 }

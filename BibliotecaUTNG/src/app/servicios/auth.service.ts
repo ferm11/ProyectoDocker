@@ -25,7 +25,7 @@ export class AuthService {
   private userDataSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   userData$: Observable<any> = this.userDataSubject.asObservable();
 
-  private API_URL = "http://localhost:8080/api"
+  private API_URL = "http://192.168.49.2:30444/api"
 
   constructor(private http: HttpClient, private router:Router) { 
     

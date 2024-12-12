@@ -4,8 +4,8 @@ const mysql = require('mysql');
 const db = mysql.createPool({
   host: 'mysql-db',
   port: 3306,
-  user: 'admin',
-  password: 'admin',
+  user: 'user',
+  password: 'password',
   database: 'bibliotecautng',
   waitForConnections: true,  // Esperar si no hay conexiones disponibles
   connectionLimit: 10,       // Número máximo de conexiones en db
@@ -17,6 +17,7 @@ function connectToDatabase() {
   db.getConnection((err, connection) => {
     if (err) {
       console.error('Error al obtener conexión del pool: ' + err.message);
+      console.error('Detalles del error:', err);
       setTimeout(connectToDatabase, 5000);  // Reintenta la conexión cada 5 segundos
     } else {
       console.log('Conexión a la base de datos exitosa');

@@ -18,7 +18,7 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:81'  // O el origen del frontend si es diferente
+  origin: 'http://192.168.49.2:30222/'  // O el origen del frontend si es diferente
 }));
 
 

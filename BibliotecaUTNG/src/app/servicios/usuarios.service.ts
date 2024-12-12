@@ -15,7 +15,7 @@ export class UsuariosService {
 
   private tokenSubject = new BehaviorSubject<string | null>(null);
 
-  private API_URL = "http://localhost:8080/api"
+  private API_URL = "http://192.168.49.2:30444/api"
 
   constructor(private http: HttpClient, private router:Router) { 
     // Obtener el token almacenado localmente si existe
@@ -26,7 +26,7 @@ export class UsuariosService {
   }
 
   registro(usuario):Observable<any> {
-    return this.http.post(`http://localhost:8080/api/registro`, usuario);
+    return this.http.post(`http://192.168.49.2:30444/api/registro`, usuario);
   }
 
   login(numControl: string, contrasena: string): Observable<any> {
@@ -35,13 +35,13 @@ export class UsuariosService {
     const body = { numControl, contrasena };
     const headers = { 'Content-Type': 'application/json' };
   
-    return this.http.post<any>('http://localhost:8080/api/login', body, { headers });
+    return this.http.post<any>('http://192.168.49.2:30444/api/login', body, { headers });
   }
   
 
   // Método para verificar si el correo electrónico está registrado
   checkEmail(email: string) {
-    return this.http.post<any>('http://localhost:8080/api/check-email', { email });
+    return this.http.post<any>('http://192.168.49.2:30444/api/check-email', { email });
   }
 
   get token() {
@@ -61,13 +61,13 @@ export class UsuariosService {
   }
 
   obtenerUsuarios() {
-    return this.http.get('http://localhost:8080/api/usuarios'); // Realiza una solicitud GET al servidor para obtener los datos de los usuarios
+    return this.http.get('http://192.168.49.2:30444/api/usuarios'); // Realiza una solicitud GET al servidor para obtener los datos de los usuarios
   }
 
   // Método para enviar el correo de verificación
   verifyToken(token: string): Observable<any> {
     console.log('Codigo de verificacion: ', token);
-    return this.http.post<any>('http://localhost:8080/api/verify-token', { token })
+    return this.http.post<any>('http://192.168.49.2:30444/api/verify-token', { token })
       .pipe(
         catchError(error => {
           console.error('Error al verificar el código:', error);
@@ -84,7 +84,7 @@ export class UsuariosService {
 
   //Metodo para actualizar usuario
   getUsuarios(numControl: number) {
-    return this.http.get(`http://localhost:8080/api/actualizar/usuarios/${numControl}`);
+    return this.http.get(`http://192.168.49.2:30444/api/actualizar/usuarios/${numControl}`);
   }
 
   /////////////////////////
@@ -116,6 +116,6 @@ export class UsuariosService {
   //Metodo paara validar token al iniciar sesion:
   // En tu servicio de usuarios
 verificarToken(token: string) {
-  return this.http.post('http://localhost:8080/api/verificar-token', { token });
+  return this.http.post('http://192.168.49.2:30444/api/verificar-token', { token });
 }
 } 
