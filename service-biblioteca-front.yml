@@ -7,8 +7,9 @@ metadata:
 spec:
   ports:
     - name: biblioteca-front
-      port: 80
+      port: 81          # Cambiado de 80 a 81
+      targetPort: 81    # Asegúrate de incluir esto
       nodePort: 30222
   type: NodePort
-  selector:
+  selector: 
     app: biblioteca-front

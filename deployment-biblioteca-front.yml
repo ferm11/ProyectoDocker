@@ -16,5 +16,5 @@ spec:
         - name: biblioteca-front
           image: biblioteca-front:0.0.1
           ports:
-            - containerPort: 80
+            - containerPort: 81
               name: bibliotecafport

@@ -5,7 +5,7 @@ FLUSH PRIVILEGES;
 Use bibliotecautng
 
 CREATE TABLE `Ejemplar` (
-  `ISBN` int DEFAULT NULL,
+  `ISBN` varchar(50) DEFAULT NULL,
   `idEjemplar` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -24,7 +24,7 @@ INSERT INTO `Ejemplar` (`ISBN`, `idEjemplar`) VALUES
 --
 
 CREATE TABLE `Libro` (
-  `ISBN` int NOT NULL,
+  `ISBN` varchar(50) NOT NULL,
   `titulo` varchar(50) NOT NULL,
   `autores` varchar(100) NOT NULL,
   `fPublicacion` varchar(15) NOT NULL,
@@ -50,7 +50,7 @@ INSERT INTO `Libro` (`ISBN`, `titulo`, `autores`, `fPublicacion`, `editorial`, `
 
 CREATE TABLE `Prestamo` (
   `idPrestamo` int NOT NULL,
-  `ISBN` int DEFAULT NULL,
+  `ISBN` varchar(50) DEFAULT NULL,
   `idEjemplar` int DEFAULT NULL,
   `numControl` int NOT NULL,
   `correo` varchar(75) NOT NULL,
@@ -90,11 +90,11 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `numControl`, `nombre`, `apellido`, `correo`, `telefono`, `contrasena`, `rol`) VALUES
-(1, 1221100297, 'Fernando', 'Mendoza Garcia', 'fermgarcia1912@gmail.com', '4681150215', '$2a$10$tahPau/.74XaiueDQrszXeulCZBpKGubOGtOmhHxRUheu/zuSiKHO', 'administrador'),
-(2, 1221100290, 'Ana', 'Lopez', 'jisellopez1022@gmail.com', '4681392374', '$2a$08$7XEjg4nxMLUK4HVmZlF.p.yuSnejK6SgdVnourZOYgFsTreigs4HK', 'estudiante'),
-(4, 1221100110, 'Ana', 'Lopez', 'poki089@gmail.com', '2382948894', '$2a$08$EgBcAhbzjXorrwvuEoJfP./NJujmL.LU.ygAwjZADrb11ACAxjhDS', 'estudiante'),
-(5, 1221100123, 'Rodrigo', 'Mendoza', 'poki132@gmail.com', '4681150215', '$2a$08$7J57NlOpAo.JkrAruMmF8u/fiSoFZogOj8a5GNXfQRV77QsVElNyG', 'estudiante');
+INSERT INTO `usuario` (`numControl`, `nombre`, `apellido`, `correo`, `telefono`, `contrasena`, `rol`) VALUES
+(1221100297, 'Fernando', 'Mendoza Garcia', 'fermgarcia1912@gmail.com', '4681150215', '$2a$10$tahPau/.74XaiueDQrszXeulCZBpKGubOGtOmhHxRUheu/zuSiKHO', 'administrador'),
+(1221100290, 'Ana', 'Lopez', 'jisellopez1022@gmail.com', '4681392374', '$2a$08$7XEjg4nxMLUK4HVmZlF.p.yuSnejK6SgdVnourZOYgFsTreigs4HK', 'estudiante'),
+(1221100110, 'Ana', 'Lopez', 'poki089@gmail.com', '2382948894', '$2a$08$EgBcAhbzjXorrwvuEoJfP./NJujmL.LU.ygAwjZADrb11ACAxjhDS', 'estudiante'),
+(1221100123, 'Rodrigo', 'Mendoza', 'poki132@gmail.com', '4681150215', '$2a$08$7J57NlOpAo.JkrAruMmF8u/fiSoFZogOj8a5GNXfQRV77QsVElNyG', 'estudiante');
 
 --
 -- Índices para tablas volcadas
